@@ -47,9 +47,9 @@ class Container {
     }
     async deleteById(id) {
         const products = await this.getAll();
-        const newObjectsArray = products.filter(product => product.id !== id)
+        const newProductsArray = products.filter(product => product.id !== id)
         try {
-            await fs.promises.writeFile(this.file, JSON.stringify(newObjectsArray))
+            await fs.promises.writeFile(this.file, JSON.stringify(newProductsArray))
         } catch (error) {
             throw new Error(error);
         }
